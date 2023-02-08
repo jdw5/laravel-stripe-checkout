@@ -13,4 +13,10 @@ class Cart extends Model
         'user_id',
         'session_id'
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)
+            ->withTimestamps();
+    }
 }
