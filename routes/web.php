@@ -23,8 +23,10 @@ use App\Http\Controllers\CartProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');
+Route::delete('/cart/products/{product:slug}', [CartProductController::class, 'destroy'])->name('cart.products.destroy');
 Route::post('/cart/product', [CartProductController::class, 'store'])->name('cart.products.store');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

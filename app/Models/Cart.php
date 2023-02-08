@@ -14,6 +14,11 @@ class Cart extends Model
         'session_id'
     ];
 
+    public function scopeBySession()
+    {
+        return $this->where('session_id', session()->getId());
+    }
+
     public function products()
     {
         return $this->belongsToMany(Product::class)

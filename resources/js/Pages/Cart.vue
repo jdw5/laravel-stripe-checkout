@@ -1,12 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
-
-const props = defineProps({
-    product: Object,
-})
-
+import { Head, Link, useForm, router } from '@inertiajs/vue3';
 
 </script>
 
@@ -36,7 +31,7 @@ const props = defineProps({
                                 <div>
                                     {{ product.price }}
                                 </div>
-                                <form @submit.prevent="remove" action="">
+                                <form @submit.prevent="router.delete(route('cart.products.destroy', product.slug))">
                                     <button type="submit" class="text-indigo-500">
                                         Remove
                                     </button>

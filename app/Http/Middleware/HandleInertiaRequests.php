@@ -41,7 +41,7 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
-            'cart' => CartResource::make(Cart::where('session_id', session()->getId())->first())
+            'cart' => CartResource::make(Cart::bySession()->first())
         ]);
     }
 }

@@ -21,8 +21,13 @@ class CartProductController extends Controller
         return redirect()->back();
     }
 
+    
+
     public function destroy(Product $product)
     {
+        $cart = Cart::bySession()->first()->products()->detach($product);
         
+
+        return redirect()->back();
     }
 }
