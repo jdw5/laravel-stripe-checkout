@@ -1,11 +1,19 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, useForm } from '@inertiajs/vue3';
 
-defineProps({
+const props = defineProps({
     product: Object,
 })
+const form = useForm({
+    product_id: props.product.id
+})
+const submit = () => {
+    form.post(route('cart.products.store'))
+
+}
+
 </script>
 
 <template>
@@ -31,9 +39,11 @@ defineProps({
                         <p class="mb-2">
                             {{ product.description }}
                         </p>
-                        <PrimaryButton type="button">
-                            Add to Cart
-                        </PrimaryButton>
+                        <form @submit.prevent="submit">
+                            <PrimaryButton type="submit">
+                                Add to Cart
+                            </PrimaryButton>
+                        </form>
                     </div>
                     
                 </div>

@@ -37,7 +37,7 @@ const showingNavigationDropdown = ref(false);
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <!-- Settings Dropdown -->
-                            <div class="relative ml-3">
+                            <div class="relative ml-3" v-if="$page.props.auth.user">
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
@@ -119,7 +119,7 @@ const showingNavigationDropdown = ref(false);
 
                     <!-- Responsive Settings Options -->
                     <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-                        <div class="px-4">
+                        <div class="px-4" v-if="$page.props.auth.user">
                             <div class="text-base font-medium text-gray-800 dark:text-gray-200">
                                 {{ $page.props.auth.user.name }}
                             </div>
