@@ -1,9 +1,10 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { Head, Link } from '@inertiajs/vue3';
 
 defineProps({
-    products: Array,
+    product: Object,
 })
 </script>
 
@@ -13,28 +14,27 @@ defineProps({
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                Products
+                {{ product.title }}
             </h2>
         </template>
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <Link :href="route('products.show', product)"
-                        v-for="product in products"
-                        :key="product.id"
-                        class="p-6 overflow-hidden bg-white shadow-sm sm:rounded-lg"
-                    >
-                        <h1 class="mb-2 text-lg font-semibold">
+                <div class="grid grid-cols-2 gap-4 md:grid-cols-2">
+                    <div class="p-6 overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                        <div class="mb-2">
                             {{ product.title }}
-                        </h1>
+                        </div>
                         <div class="">
                             {{ product.price }}
                         </div>
-                        <p>
+                        <p class="mb-2">
                             {{ product.description }}
                         </p>
-                    </Link>
+                        <PrimaryButton type="button">
+                            Add to Cart
+                        </PrimaryButton>
+                    </div>
                     
                 </div>
                 <!-- <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
