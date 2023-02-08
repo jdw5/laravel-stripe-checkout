@@ -3,7 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 
 defineProps({
-    products: Array,
+    products: Object,
 })
 </script>
 
@@ -21,7 +21,7 @@ defineProps({
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
                     <Link :href="route('products.show', product)"
-                        v-for="product in products"
+                        v-for="product in products.data"
                         :key="product.id"
                         class="p-6 overflow-hidden bg-white shadow-sm sm:rounded-lg"
                     >

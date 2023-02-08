@@ -2,10 +2,10 @@
 
 namespace App\Http\Resources;
 
-use Laravel\Cashier\Cashier;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Laravel\Cashier\Cashier;
 
-class CartResource extends JsonResource
+class ProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,11 +16,12 @@ class CartResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'session_id' => $this->session_id,
-            'user_id' => $this->user_id,
-            'count' => $this->products->count() ?? 0,
-            'products' => ProductResource::collection($this->products),
-            'total' => Cashier::formatAmount($this->total(), 'aud'),
+            'id' => $this->id,
+            'title' => $this->title,
+            'price' => Cashier::formatAmount($this->price, 'aud'),
+            'description' => $this->description,
+            'slug' => $this->slug,
+            'stripe_id' => $this->stripe_id,
         ];
     }
 }

@@ -7,7 +7,7 @@ const props = defineProps({
     product: Object,
 })
 const form = useForm({
-    product_id: props.product.id
+    product_id: props.product.data.id
 })
 const submit = () => {
     form.post(route('cart.products.store'))
@@ -22,7 +22,7 @@ const submit = () => {
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                {{ product.title }}
+                {{ product.data.title }}
             </h2>
         </template>
 
@@ -31,13 +31,13 @@ const submit = () => {
                 <div class="grid grid-cols-2 gap-4 md:grid-cols-2">
                     <div class="p-6 overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div class="mb-2">
-                            {{ product.title }}
+                            {{ product.data.title }}
                         </div>
                         <div class="">
-                            {{ product.price }}
+                            {{ product.data.price }}
                         </div>
                         <p class="mb-2">
-                            {{ product.description }}
+                            {{ product.data.description }}
                         </p>
                         <form @submit.prevent="submit">
                             <PrimaryButton type="submit">
