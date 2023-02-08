@@ -30,7 +30,10 @@ const showingNavigationDropdown = ref(false);
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('home')" :active="route().current('home')">
-                                    home
+                                    Products
+                                </NavLink>
+                                <NavLink :href="route('cart.index')" :active="route().current('cart.index')">
+                                    Cart ({{ $page.props.cart.data.count }})
                                 </NavLink>
                             </div>
                         </div>

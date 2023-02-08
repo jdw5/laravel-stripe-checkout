@@ -20,4 +20,9 @@ class CartProductController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Product $product)
+    {
+        
+    }
 }
