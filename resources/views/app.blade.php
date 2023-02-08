@@ -13,6 +13,7 @@
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
+        <script src="https://js.stripe.com/v3/"></script>
     </head>
     <body class="font-sans antialiased">
         @inertia

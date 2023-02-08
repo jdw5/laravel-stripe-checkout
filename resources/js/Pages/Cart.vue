@@ -41,9 +41,11 @@ import { Head, Link, useForm, router } from '@inertiajs/vue3';
                                 <div class="mb-2">
                                     Cart total: {{ $page.props.cart.data.total }}
                                 </div>
-                                <PrimaryButton type="button">
-                                    Checkout
-                                </PrimaryButton>
+                                <Link :href="route('checkout.index')">
+                                    <PrimaryButton type="link">
+                                        Checkout
+                                    </PrimaryButton>
+                                </Link>
 
                             </div>
                         </div>

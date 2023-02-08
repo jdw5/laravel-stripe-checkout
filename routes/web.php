@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartProductController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name
 Route::delete('/cart/products/{product:slug}', [CartProductController::class, 'destroy'])->name('cart.products.destroy');
 Route::post('/cart/product', [CartProductController::class, 'store'])->name('cart.products.store');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 
 
 // Route::get('/dashboard', function () {
