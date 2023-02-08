@@ -18,7 +18,8 @@ class CartResource extends JsonResource
             'session_id' => $this->session_id,
             'user_id' => $this->user_id,
             'count' => $this->products->count() ?? 0,
-            'products' => $this->products
+            'products' => $this->products,
+            'total' => $this->total()
         ];
     }
 }

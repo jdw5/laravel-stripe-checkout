@@ -39,7 +39,7 @@ import { Head, Link, useForm, router } from '@inertiajs/vue3';
                             </div>
                             <div class="mt-4">
                                 <div class="mb-2">
-                                    Cart total: x
+                                    Cart total: {{ $page.props.cart.data.total }}
                                 </div>
                                 <PrimaryButton type="button">
                                     Checkout

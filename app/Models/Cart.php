@@ -24,4 +24,9 @@ class Cart extends Model
         return $this->belongsToMany(Product::class)
             ->withTimestamps();
     }
+
+    public function total()
+    {
+        return $this->products->sum('price');
+    }
 }
