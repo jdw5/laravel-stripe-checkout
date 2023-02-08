@@ -5,11 +5,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CartProductController;
-use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CartProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::delete('/cart/products/{product:slug}', [CartProductController::class, 'd
 Route::post('/cart/product', [CartProductController::class, 'store'])->name('cart.products.store');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 
 Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook']);
 
