@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartProductController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::post('/cart/product', [CartProductController::class, 'store'])->name('car
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 
+Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook']);
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
